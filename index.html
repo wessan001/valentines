@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Wesley e Beatriz</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #d81e5b, #ff4081);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+      position: relative;
+      color: #fff;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      color: #fff;
+      text-shadow: 1px 1px 4px #7a0d3a;
+      z-index: 2;
+      position: relative;
+    }
+
+    .photo {
+      max-width: 300px;
+      width: 80%;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      margin-bottom: 20px;
+      z-index: 2;
+      position: relative;
+    }
+
+    .music-player {
+      background-color: #1DB954;
+      border-radius: 30px;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      justify-content: center;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+      margin: 20px 0;
+      flex-wrap: wrap;
+      z-index: 2;
+      position: relative;
+    }
+
+    .album-cover {
+      width: 100px;
+      height: 100px;
+      border-radius: 15px;
+      object-fit: cover;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .music-player audio {
+      width: 250px;
+      outline: none;
+    }
+
+    .timer {
+      font-size: 1.5rem;
+      color: #fff;
+      background: rgba(255, 64, 129, 0.35);
+      padding: 15px 25px;
+      border-radius: 15px;
+      margin-top: 20px;
+      box-shadow: 0 6px 15px rgba(255, 64, 129, 0.6);
+      font-weight: bold;
+      text-shadow: 1px 1px 3px #ff4081;
+      transition: transform 0.3s ease;
+      z-index: 2;
+      position: relative;
+    }
+
+    .timer:hover {
+      transform: scale(1.05);
+    }
+
+    .why-love {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 30px;
+      border-radius: 20px;
+      margin-top: 30px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      max-width: 600px;
+      z-index: 2;
+    }
+
+    .why-love h2 {
+      font-size: 2rem;
+      margin-bottom: 15px;
+      color: #fff;
+      text-shadow: 1px 1px 3px #c2185b;
+    }
+
+    .why-love ul {
+      list-style: none;
+      padding: 0;
+      text-align: left;
+    }
+
+    .why-love li {
+      margin-bottom: 10px;
+      font-size: 1.2rem;
+    }
+
+    .heart {
+      position: fixed;
+      width: 20px;
+      height: 20px;
+      background: #ff4081;
+      opacity: 0.8;
+      left: 50%;
+      bottom: -30px;
+      transform: translateX(-50%) rotate(45deg);
+      animation-name: floatUp;
+      animation-timing-function: ease-in-out;
+      animation-iteration-count: infinite;
+      animation-duration: 6s;
+      pointer-events: none;
+      z-index: 1;
+      border-radius: 4px 4px 0 0;
+      box-shadow:
+        -10px 0 #ff4081,
+        0 -10px #ff4081;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: #ff4081;
+      border-radius: 50%;
+    }
+    .heart::before {
+      top: -10px;
+      left: 0;
+    }
+    .heart::after {
+      left: 10px;
+      top: 0;
+    }
+
+    @keyframes floatUp {
+      0% {
+        bottom: -30px;
+        opacity: 0.8;
+        transform: translateX(0) rotate(45deg) scale(1);
+      }
+      50% {
+        opacity: 1;
+        transform: translateX(20px) rotate(45deg) scale(1.2);
+      }
+      100% {
+        bottom: 110vh;
+        opacity: 0;
+        transform: translateX(-20px) rotate(45deg) scale(0.8);
+      }
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2rem;
+      }
+      .timer {
+        font-size: 1.1rem;
+      }
+      .music-player audio {
+        width: 200px;
+      }
+      .album-cover {
+        width: 80px;
+        height: 80px;
+      }
+      .heart {
+        width: 15px;
+        height: 15px;
+      }
+      .heart::before,
+      .heart::after {
+        width: 15px;
+        height: 15px;
+        top: -7.5px;
+      }
+      .heart::after {
+        left: 7.5px;
+        top: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Wesley ❤️ Beatriz</h1>
+  <div class="music-player">
+    <img
+      src="https://i.scdn.co/image/ab67616d0000b2733bdcce59b390456941d964d1"
+      alt="Capa do Álbum"
+      class="album-cover"
+    />
+    <audio controls autoplay loop>
+      <source src="audio\Mirrors (Sped up).mp3" type="audio/mpeg" />
+      Seu navegador não suporta o elemento de áudio.
+    </audio>
+  </div>
+  <div class="timer" id="loveTimer"></div>
+
+  <script>
+    const startDate = new Date("2024-04-20T18:00:00");
+
+    function updateTimer() {
+      const now = new Date();
+      const diff = now - startDate;
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / (1000 * 60)) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
+
+      document.getElementById("loveTimer").innerHTML =
+        `Estamos juntos há ${days} dias, ${hours} horas, ${minutes} minutos e ${seconds} segundos.`;
+    }
+
+    setInterval(updateTimer, 1000);
+    updateTimer();
+
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.style.left = Math.random() * window.innerWidth + "px";
+      heart.style.animationDuration = 4 + Math.random() * 3 + "s";
+      heart.style.opacity = Math.random() * 0.7 + 0.3;
+      heart.style.fontSize = 10 + Math.random() * 10 + "px";
+
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 7000);
+    }
+
+    setInterval(createHeart, 400);
+  </script>
+
+  <img src="pic.png" alt="Foto do casal" class="photo" />
+
+    <div class="why-love">
+    <h2>Por que te amo?</h2>
+    <ul>
+      <li>Porque seu sorriso ilumina meus dias.</li>
+      <li>Porque você me apoia em tudo, sempre.</li>
+      <li>Porque nossos momentos juntos são mágicos.</li>
+      <li>Porque você é minha melhor amiga e meu amor.</li>
+      <li>Porque só você me entende de verdade.</li>
+    </ul>
+  </div>
+  
+</body>
+</html>
