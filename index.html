@@ -331,7 +331,7 @@
   }
 
   .heart-button {
-    background: #ff4081;
+    background: white;
     color: white;
     border: none;
     font-size: 2rem;
@@ -352,12 +352,13 @@
 
   function increaseLove() {
     if (loveLevel < 100) {
-      loveLevel += 5;
+      loveLevel += 20;
       document.getElementById("progress").style.width = loveLevel + "%";
       document.getElementById("lovePercentage").innerText = loveLevel + "%";
     } else {
       document.getElementById("lovePercentage").innerText = "100%";
-      alert("O amor já está no máximo! 💖");window.location.href = "https://wa.me/5514981161809?text=Te%20amo%20muito%20amor"; // substitua pelo site desejado
+      alert("O amor já está no máximo! 💖");
+      window.location.href = "https://wa.me/5514981161809?text=Te%20amo%20muito%20amor"; // substitua pelo site desejado
     }
   }
 </script>
