@@ -209,17 +209,21 @@
 </head>
 <body>
   <h1>Wesley ❤️ Beatriz</h1>
-  <div class="music-player">
-    <img
-      src="https://i.scdn.co/image/ab67616d0000b2733bdcce59b390456941d964d1"
-      alt="Capa do Álbum"
-      class="album-cover"
-    />
+<div class="music-player">
+  <img
+    src="https://i.scdn.co/image/ab67616d0000b2733bdcce59b390456941d964d1"
+    alt="Capa do Álbum"
+    class="album-cover"
+  />
+  <div style="display: flex; flex-direction: column; align-items: center;">
+    <p style="margin: 0; font-weight: bold; font-size: 1.2rem;">Mirrors</p>
+    <p style="margin: 0 0 10px 0; font-size: 1rem;">Justin Timberlake</p>
     <audio controls autoplay loop>
-      <source src="audio\Mirrors (Sped up).mp3" type="audio/mpeg" />
+      <source src="audio/Mirrors (Sped up).mp3" type="audio/mpeg" />
       Seu navegador não suporta o elemento de áudio.
     </audio>
   </div>
+</div>
   <div class="timer" id="loveTimer"></div>
 
   <script>
@@ -271,6 +275,93 @@
       <li>Porque só você me entende de verdade.</li>
     </ul>
   </div>
+
+  <div class="love-meter">
+  <h2>O quanto você me ama?</h2>
+  <p class="instruction">Clique no coração para mostrar ❤️</p>
+  <div class="progress-bar">
+    <div class="progress" id="progress" style="width: 0%;"></div>
+  </div>
+  <p id="lovePercentage">0%</p>
+  <button class="heart-button" onclick="increaseLove()">💗</button>
+</div>
+
+<style>
+  .love-meter {
+    margin-top: 40px;
+    text-align: center;
+    z-index: 2;
+    color: #fff;
+  }
+
+  .love-meter h2 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    text-shadow: 1px 1px 3px #ff4081;
+  }
+
+  .instruction {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    color: #ffeef6;
+  }
+
+  .progress-bar {
+    width: 80%;
+    max-width: 400px;
+    height: 30px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    margin: 0 auto 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  }
+
+  .progress {
+    height: 100%;
+    background: linear-gradient(90deg, #ff4081, #ff80ab);
+    width: 0%;
+    transition: width 0.3s ease;
+  }
+
+  #lovePercentage {
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 3px #c2185b;
+  }
+
+  .heart-button {
+    background: #ff4081;
+    color: white;
+    border: none;
+    font-size: 2rem;
+    padding: 10px 20px;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(255, 64, 129, 0.6);
+    transition: transform 0.2s ease;
+  }
+
+  .heart-button:hover {
+    transform: scale(1.2);
+  }
+</style>
+
+<script>
+  let loveLevel = 0;
+
+  function increaseLove() {
+    if (loveLevel < 100) {
+      loveLevel += 5;
+      document.getElementById("progress").style.width = loveLevel + "%";
+      document.getElementById("lovePercentage").innerText = loveLevel + "%";
+    } else {
+      document.getElementById("lovePercentage").innerText = "100%";
+      alert("O amor já está no máximo! 💖");window.location.href = "https://wa.me/5514981161809?text=Te%20amo%20muito%20amor"; // substitua pelo site desejado
+    }
+  }
+</script>
+
   
 </body>
 </html>
